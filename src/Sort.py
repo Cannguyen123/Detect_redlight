@@ -1,4 +1,22 @@
+"""
+    SORT: A Simple, Online and Realtime Tracker
+    Copyright (C) 2016-2020 Alex Bewley alex@bewley.ai
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
 from __future__ import print_function
+
 import os
 import numpy as np
 import matplotlib
@@ -7,6 +25,7 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from skimage import io
+
 import glob
 import time
 import argparse
@@ -274,8 +293,8 @@ if __name__ == '__main__':
         fig = plt.figure()
         ax1 = fig.add_subplot(111, aspect='equal')
 
-    if not os.path.exists('../output'):
-        os.makedirs('../output')
+    if not os.path.exists('output'):
+        os.makedirs('output')
     pattern = os.path.join(args.seq_path, phase, '*', 'det', 'det.txt')
     for seq_dets_fn in glob.glob(pattern):
         mot_tracker = Sort(max_age=args.max_age,
@@ -284,7 +303,7 @@ if __name__ == '__main__':
         seq_dets = np.loadtxt(seq_dets_fn, delimiter=',')
         seq = seq_dets_fn[pattern.find('*'):].split(os.path.sep)[0]
 
-        with open(os.path.join('../output', '%s.txt' % (seq)), 'w') as out_file:
+        with open(os.path.join('output', '%s.txt' % (seq)), 'w') as out_file:
             print("Processing %s." % (seq))
             for frame in range(int(seq_dets[:, 0].max())):
                 frame += 1  # detection and frame numbers begin at 1
