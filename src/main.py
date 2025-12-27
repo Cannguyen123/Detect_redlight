@@ -11,26 +11,18 @@ results = {}
 mot_tracker = Sort()
 
 # load models
-coco_model = YOLO(r'C:\code_chay\model\vehicle.pt')
+coco_model = YOLO(r'C:\code_chay\model\yolov8n.pt')
 license_plate_detector = YOLO(r'C:\code_chay\model\number_plate.pt')
 
 # load video
 cap = cv2.VideoCapture(r'C:\code_chay\input\demo.mp4')
 
 vehicle_name_whitelist = [
-    'Bus',
-    'Cement mixer truck',
-    'Garbage truck',
-    'Pickup',
-    'Pickup_modify',
-    'SUV',
-    'Sedan',
-    'Tank truck',
-    'Taxi',
-    'Tow Truck',
-    'Trailer truck',
-    'Truck',
-    'Van'
+    'car',
+    'motorcycle',
+    'bus',
+    'truck',
+
 ]
 
 vehicles = [
