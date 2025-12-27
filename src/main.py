@@ -109,7 +109,7 @@ while ret:
         break
 
 # ================= SAVE RESULT =================
-write_csv(results, './test.csv')
+write_csv(results, '../csv/test.csv')
 
 cap.release()
 cv2.destroyAllWindows()
