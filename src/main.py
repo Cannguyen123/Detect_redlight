@@ -15,7 +15,7 @@ coco_model = YOLO(r'C:\code_chay\model\yolov8n.pt')
 license_plate_detector = YOLO(r'C:\code_chay\model\number_plate.pt')
 
 # load video
-cap = cv2.VideoCapture(r'C:\code_chay\input\demo.mp4')
+cap = cv2.VideoCapture(r'C:\code_chay\input\vehicle_count_input2.mp4')
 
 vehicle_name_whitelist = [
     'car',
